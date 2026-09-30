@@ -77,8 +77,14 @@ Route::middleware(['auth', 'permission'])->group(function () {
     Route::put('/company/{id}', [CompanyController::class, 'update'])->name('company.update');
     Route::delete('/company/{id}', [CompanyController::class, 'destroy'])->name('company.destroy');
     Route::get('/company/search', [CompanyController::class, 'search'])->name('company.search');
-    Route::get('/company/get-companies-dropdown', [CompanyController::class, 'getCompaniesForDropdown']);
+    Route::get('/company/get-companies-dropdown', [CompanyController::class, 'getCompaniesForDropdown'])->name('company.getCompaniesForDropdown');
     Route::get('/company/{id}/pics', [CompanyController::class, 'getCompanyPics']);
+    Route::get('/company/export/pdf-list', [CompanyController::class, 'exportPdfList'])->name('company.pdf.list');
+    Route::get('/company/export/pdf-selected', [CompanyController::class, 'exportPdfSelected'])->name('company.pdf.selected');
+        Route::get('/company/export/pdf-selected', [CompanyController::class, 'exportPdfSelected'])->name('company.pdf.selected');
+    Route::get('/company/export/pivot-excel', [CompanyController::class, 'exportPivotExcel'])->name('company.pivot.excel');
+    Route::get('/company/{id}/pdf', [CompanyController::class, 'exportPdf'])->name('company.pdf');
+    Route::get('/company/{id}/pdf', [CompanyController::class, 'exportPdf'])->name('company.pdf');
     Route::get('/company/{id}', [CompanyController::class, 'show'])->name('company.show');
     
     // ==========================
